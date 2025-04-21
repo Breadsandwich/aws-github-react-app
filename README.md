@@ -1,6 +1,6 @@
 # React App with AWS S3 and CloudFront Deployment
 
-This is a React application template built with Vite that includes automated deployment to AWS S3 and CloudFront using GitHub Actions.
+This is a React application template built with Vite that includes automated deployment to AWS S3 and CloudFront using GitHub Actions. Purpose is for fast deployment changes to live environment.
 
 ## Prerequisites
 
@@ -194,7 +194,7 @@ The application is automatically deployed to AWS S3 and CloudFront when changes 
 ## Project Structure
 
 ```
-├── src/                # Source files
+├── src/               # Source files
 ├── public/            # Static files
 ├── .github/           # GitHub Actions workflows
 ├── index.html         # Entry HTML file
