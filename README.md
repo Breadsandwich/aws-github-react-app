@@ -1,6 +1,78 @@
 # React App with AWS S3 and CloudFront Deployment
 
-This is a React application template built with Vite that includes automated deployment to AWS S3 and CloudFront using GitHub Actions. Purpose is for fast deployment changes to live environment.
+This is a React application template built with Vite that includes automated deployment to AWS S3 and CloudFront using GitHub Actions. Purpose is for fast deployment changes to live environment while being cheaper alternative to other hosts.
+
+## Why Use This React Template
+
+This template significantly reduces the time and effort required to set up a production-ready React application with automated cloud deployment.
+
+### Time Savings Breakdown
+
+Traditional Manual Setup (2-4 hours):
+- React/Vite project setup: 15 mins
+- TypeScript configuration: 15 mins
+- AWS S3 bucket setup: 15 mins
+- CloudFront configuration: 15 mins
+- IAM roles and policies: 15 mins
+- GitHub Actions setup: 30 mins
+- Deployment pipeline testing: 15 mins
+- Custom domain & SSL setup: 30 mins
+- Documentation writing: 30 mins
+- Issue troubleshooting: 30 mins
+
+Using This Template (30-45 mins):
+1. Initial setup: 5 mins
+   - Template cloning
+   - Dependencies installation
+   - Initial testing
+2. AWS Setup: 15-20 mins
+   - S3 bucket creation
+   - CloudFront setup
+   - IAM user configuration
+3. GitHub Setup: 5-10 mins
+   - Repository secrets
+   - Test deployment
+4. Custom Domain (optional): 5-10 mins
+   - SSL certificate
+   - DNS configuration
+
+**Total Time Saved: 1.5-3 hours per project**
+
+## Getting Started
+
+### Option 1: Use as Template (Recommended)
+1. Click the "Use this template" button on GitHub
+2. Create a new repository from this template
+3. Clone your new repository:
+```bash
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
+```
+
+### Option 2: Manual Setup
+1. Clone this repository:
+```bash
+git clone https://github.com/original-repo/aws-github-react-app.git
+cd aws-github-react-app
+```
+2. Remove the existing Git history and initialize a new repository:
+```bash
+rm -rf .git
+git init
+git add .
+git commit -m "Initial commit"
+```
+3. Create a new repository on GitHub and add it as remote:
+```bash
+git remote add origin https://github.com/your-username/your-repo-name.git
+git push -u origin main
+```
+
+### Next Steps
+1. Follow the [AWS Setup](#aws-setup) instructions to create your infrastructure
+2. Add the required [GitHub Secrets](#github-actions-setup) to your repository
+3. Update this README with your project-specific information
+4. Push your changes to trigger the automatic deployment
 
 ## Prerequisites
 
