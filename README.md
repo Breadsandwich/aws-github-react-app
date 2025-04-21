@@ -88,6 +88,47 @@ npm run build
      - 404: Not Found
      - Redirect to `index.html` with 200 status code
 
+3. Accessing your website:
+   - After deployment, your site will be available at your CloudFront URL
+   - Find the URL in the CloudFront Console under the "Distribution domain name" column
+   - Format: `https://dxxxxxxxx.cloudfront.net`
+
+### Custom Domain Setup
+
+1. Prerequisites:
+   - A registered domain name
+   - Access to your domain's DNS settings
+   - An SSL certificate (free with AWS Certificate Manager)
+
+2. Create SSL Certificate:
+   - Go to AWS Certificate Manager
+   - Click "Request certificate"
+   - Choose "Request a public certificate"
+   - Enter your domain name (e.g., `example.com`)
+   - Add a wildcard subdomain (e.g., `*.example.com`)
+   - Choose DNS validation
+   - Add the provided CNAME records to your DNS settings
+   - Wait for validation (can take up to 30 minutes)
+
+3. Update CloudFront Distribution:
+   - Go to your CloudFront distribution
+   - Click "Edit"
+   - Under "Settings" > "Alternate domain names (CNAMEs)", add your domain
+   - Under "Custom SSL certificate", select your validated certificate
+   - Save changes
+
+4. Configure DNS:
+   - Go to your domain registrar or DNS provider
+   - Add a CNAME record:
+     ```
+     Name: www (or @ for root domain)
+     Value: Your CloudFront distribution domain (dxxxxxxxx.cloudfront.net)
+     TTL: 300 (or recommended value)
+     ```
+   - For root domain (example.com), create an A record alias pointing to your CloudFront distribution
+
+Your website should now be accessible at both your custom domain and the CloudFront URL.
+
 ### IAM User Setup
 
 You can set up the IAM user in one of two ways:
