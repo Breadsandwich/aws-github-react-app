@@ -1,0 +1,31 @@
+# Base stage for all builds
+FROM node:20.19.0-slim AS base
+WORKDIR /app
+COPY package*.json ./
+
+# Development stage
+FROM base AS development
+RUN npm install
+COPY . .
+EXPOSE 5173
+CMD ["npm", "run", "dev"]
+
+# Test stage
+FROM base AS test
+RUN npm ci
+COPY . .
+RUN npm run typecheck
+# Uncomment to run tests
+# RUN npm test
+
+# Build stage
+FROM base AS builder
+RUN npm ci
+COPY . .
+RUN npm run build
+
+# Production stage
+FROM nginx:alpine AS production
+COPY --from=builder /app/build /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
